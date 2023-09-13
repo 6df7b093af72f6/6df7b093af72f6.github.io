@@ -1,14 +1,32 @@
 <!DOCTYPE html>
 <html>
 
-<title>News</title>
-<!-- <meta http-equiv="refresh" content="5"> -->
-<body bgcolor="#FFFFFF">
-<body bgcolor="#000000">
-<xmp theme="slate" style="display:none;">
-<!-- <base target="_blank"> -->
-<meta charset="UTF-8">
-<meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+<head>
+  <title>News</title>
+  <!-- <meta http-equiv="refresh" content="5"> -->
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+  <script>
+    const processLinks = () => {
+      const links = document.querySelectorAll("a");
+      links.forEach((link) => {
+        if (link.href.startsWith("http")) {
+          link.setAttribute("target", "_blank");
+          link.setAttribute("rel", "noopener noreferrer");
+        }
+      });
+    };
+    document.addEventListener("DOMContentLoaded", function () {
+      processLinks();
+    });
+  </script>
+</head>
+
+<body>
+  <xmp theme="slate" style="display:none;">
+
+
+
 
 # <a id="News"></a> <a href="#News">News</a>
 

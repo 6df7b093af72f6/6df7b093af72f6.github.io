@@ -10,7 +10,7 @@
     const processLinks = () => {
       const links = document.querySelectorAll("a");
       links.forEach((link) => {
-        if (link.href.startsWith("http")) {
+        if (link.href.startsWith("https://6df") == false) {
           link.setAttribute("target", "_blank");
           link.setAttribute("rel", "noopener noreferrer");
         }

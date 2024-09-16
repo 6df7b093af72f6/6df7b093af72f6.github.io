@@ -12,24 +12,21 @@
         if (!link.href.startsWith("https://6df")) {
           link.setAttribute("target", "_blank");
           link.setAttribute("rel", "noopener noreferrer");
-
-          // Adiciona um evento de clique para mudar o título
-          link.addEventListener("click", (event) => {
-            event.preventDefault(); // Impede a navegação padrão
-
-            const href = link.getAttribute("href");
-
-            // Verifica se o link é para #News
-            if (href === "#News") {
-              document.title = "News"; // Mantém o título como "News"
-            } else {
-              document.title = link.textContent; // Atualiza o título com o texto do link
-            }
-
-            // Atualiza o hash na URL
-            window.location.hash = href;
-          });
         }
+
+        link.addEventListener("click", (event) => {
+          event.preventDefault();
+
+          const href = link.getAttribute("href");
+
+          if (href === "#News") {
+            document.title = "News";
+          } else {
+            document.title = link.textContent;
+          }
+
+          window.location.hash = href;
+        });
       });
     };
 

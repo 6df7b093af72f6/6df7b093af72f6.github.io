@@ -15,17 +15,19 @@
         }
 
         link.addEventListener("click", (event) => {
-          event.preventDefault();
-
           const href = link.getAttribute("href");
 
-          if (href === "#News") {
-            document.title = "News";
-          } else {
-            document.title = link.textContent;
-          }
+          if (href && href.startsWith("#")) {
+            event.preventDefault();
 
-          window.location.hash = href;
+            if (href === "#News") {
+              document.title = "News";
+            } else {
+              document.title = link.textContent;
+            }
+
+            window.location.hash = href;
+          }
         });
       });
     };

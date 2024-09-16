@@ -9,21 +9,24 @@
     const processLinks = () => {
       const links = document.querySelectorAll("a");
       links.forEach((link) => {
-        if (link.href.startsWith("https://6df") == false) {
+        if (!link.href.startsWith("https://6df")) {
           link.setAttribute("target", "_blank");
           link.setAttribute("rel", "noopener noreferrer");
 
           // Adiciona um evento de clique para mudar o título
           link.addEventListener("click", (event) => {
-          
+            event.preventDefault(); // Impede a navegação padrão
+
+            const href = link.getAttribute("href");
+
             // Verifica se o link é para #News
             if (href === "#News") {
-              document.title = "News"; // Define o título como "News"
+              document.title = "News"; // Mantém o título como "News"
             } else {
-              document.title = link.textContent; // Define o título como o texto do link
+              document.title = link.textContent; // Atualiza o título com o texto do link
             }
 
-            // Muda a URL para refletir a tag clicada
+            // Atualiza o hash na URL
             window.location.hash = href;
           });
         }
